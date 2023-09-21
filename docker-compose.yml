@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  samba:
+    build: .
+    container_name: samba
+    tty: true
+    ports:
+      - "139:139"
+      - "445:445"
+    environment:
+      - TZ=EST5EDT
