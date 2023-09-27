@@ -1,12 +1,18 @@
 version: '3'
 
 services:
-  samba:
-    build: .
-    container_name: samba
+  samba: 
+    build: ./Image/Samba
+    container_name: MySamba
     tty: true
     ports:
       - "139:139"
       - "445:445"
     environment:
       - TZ=EST5EDT
+    volumes:
+      - ./vol/samba.conf/publico:/mnt
+      - ./vol/samba.conf/privado:/mnt2
+      - ./vol/samba.conf/usr1:/mnt3
+      - ./vol/samba.conf/usr2:/mnt4
+      
